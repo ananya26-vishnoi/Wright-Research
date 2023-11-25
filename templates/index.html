@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta  -->
+    <meta charset="UTF-8">
+
+    <!-- Title -->
+    <title>Stock Data</title>
+
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <h1 id="heading">Stock Data</h1>
+        <input type="text" id="symbolInput" placeholder="Enter Stock Symbol">
+        <input type="date" id="date">
+        <button id="fetchButton" onclick="getData()">Fetch Data</button>
+        <div class="toggle-btn" onclick="toggleMode()">
+            <img class="toggle-img" src="{% static 'images/dark.png' %}" alt="Toggle Icon" id="toggle">
+        </div>
+        <div id="stockData">
+            <table class="table table-stripedk" id="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Open</th>
+                    <th scope="col">High</th>
+                    <th scope="col">Low</th>
+                    <th scope="col">Close</th>
+                    <th scope="col">Volume</th>
+                    <th scope="col">Dividends</th>
+                    <th scope="col">Stock Splits</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody">
+                </tbody>
+              </table>
+        </div>
+
+    </div>
+
+    <div id="toast">
+        <div id="img"><img id="wrong_img" src="{% static 'images/wrong.svg' %}" alt=""></div>
+        <div id="desc"></div>
+    </div>
+
+    <div id="toast_correct">
+        <div id="img_correct"><img id="right_img" src="{% static 'images/right.svg' %}" alt=""></div>
+        <div id="desc_correct"></div>
+    </div>
+    <div id="loading" class="loading">Loading&#8230;</div>
+
+
+    <script src="{% static 'js/getData.js' %}"></script>
+    <script src="{% static 'js/dark_light_mode.js' %}"></script>
+    <script src="{% static 'js/toast.js' %}"></script>
+    
+</body>
+
+</html>
