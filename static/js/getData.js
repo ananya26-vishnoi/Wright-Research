@@ -1,9 +1,12 @@
 function getData() {
+    //Show Loader
     document.getElementById('loading').style.display = "block";
 
+    //Getting data
     var ticker = document.getElementById("symbolInput").value;
     var startDate = document.getElementById("date").value;
    
+    //Creating XMLHTTP request(sending request to backend)
     var xhr = new XMLHttpRequest();
     var url = "/get_stock_data?ticker=" + ticker + "&start_date=" + startDate;
 
@@ -24,6 +27,7 @@ function getData() {
                 launch_toast();
                 return;
             }
+            //Calling get data function after every 5 sec to make code Asynchronous
             setTimeout(getDataNoLoader, 5000);
 
             updateTable(data);
